@@ -1,0 +1,7 @@
+_build
+deps
+.DS_Store
+.git
+assets/node_modules
+pgadmin
+db

@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:12.4
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+  phoenix:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    links:
+      - "db"
+    restart: "always"
+
+volumes:
+  db:
