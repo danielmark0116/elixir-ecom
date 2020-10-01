@@ -3,13 +3,14 @@
 ## How to run it
 
 1. Clone the repo
-2. Generate a new phoenix app inside it with:
+2. Generate a new phoenix app inside it (e.g. as in this guide with `Starter` as our module and `server` as the name of the app. Further occurencies of these values just exchange with the ones of your choice) with this command:
 
    ```jsx
    mix phx.new . --module Starter --app server
    ```
 
-###### replace `Starter` and `server` with your own names
+   <sub>\* replace `Starter` and `server` with your own names</sub>
+   <sub>\*\* [more on mix tasks](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html)</sub>
 
 3. Append newly created `.gitignore` file with:
 
@@ -130,19 +131,19 @@
 
    - change these lines:
 
-   ```jsx
-   ./prod/rel/APPNAME/bin/APPNAME eval AppName.Release.migrate
+     ```jsx
+     ./prod/rel/APPNAME/bin/APPNAME eval AppName.Release.migrate
 
-   ./prod/rel/APPNAME/bin/APPNAME start
-   ```
+     ./prod/rel/APPNAME/bin/APPNAME start
+     ```
 
-   - with appropriate app and module names, e.g. when you create an app with `mix phx.new . --module Starter --app server` it should look like this:
+     - with appropriate app and module names, e.g. when you create an app with `mix phx.new . --module Starter --app server` it should look like this:
 
-   ```jsx
-   ./prod/rel/server/bin/server eval Starter.Release.migrate
+     ```jsx
+     ./prod/rel/server/bin/server eval Starter.Release.migrate
 
-   ./prod/rel/server/bin/server start
-   ```
+     ./prod/rel/server/bin/server start
+     ```
 
 7. Give executable rights for `dev.sh`, `entrypoint.sh` and `entrypoint-prod.sh` scripts:
 
@@ -153,9 +154,11 @@
    - **development** ➡️ `./dev.sh` (or run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` manually with options of your choice)
    - **production** ➡️ simply `docker-compose up`
 
-9. Useful docker commands:
+---
 
-   - `docker-compose down` - stops containers and removes containers, networks, volumes, and images created by up [more here](https://docs.docker.com/compose/reference/down/).
-   - `docker-compose up -d` - run containers in the background in detached mode [more here](https://docs.docker.com/compose/reference/up/)
-   - `docker-compose up --build` - build images before starting containers [more here](https://docs.docker.com/compose/reference/up/)
-   - `docker-compose up --force-recreate` - Recreate containers even if their configuration and image haven't changed [more here](https://docs.docker.com/compose/reference/up/)
+## Useful docker commands:
+
+- `docker-compose down` - stops containers and removes containers, networks, volumes, and images created by up [more here](https://docs.docker.com/compose/reference/down/).
+- `docker-compose up -d` - run containers in the background in detached mode [more here](https://docs.docker.com/compose/reference/up/)
+- `docker-compose up --build` - build images before starting containers [more here](https://docs.docker.com/compose/reference/up/)
+- `docker-compose up --force-recreate` - Recreate containers even if their configuration and image haven't changed [more here](https://docs.docker.com/compose/reference/up/)
