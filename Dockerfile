@@ -20,6 +20,4 @@ RUN mix deps.clean --all
 RUN mix deps.get
 RUN mix do compile
 
-RUN chmod a+x /app/entrypoint.sh
-
 CMD ["/app/entrypoint.sh"]
