@@ -10,16 +10,16 @@
 
 ## ▶️ How to run it
 
-1. Clone the repo
-2. Generate a new phoenix app inside it (e.g. as in this guide with `Starter` as our base module name and `server` as the name of the application. Further occurencies of these values just exchange with the ones of your choice) with this command:
+1. Clone the repo ➡️ `git@github.com:TheWidlarzGroup/elixir-phoenix-docker-starter.git`
+2. Generate a new 🧪 **Phoenix** 🧪 app inside the cloned repo (e.g. as in this guide with `Starter` as our base module name and `server` as the name of the application. Further occurencies of these values just exchange with the ones of your choice) with this command:
 
    ```jsx
    mix phx.new . --module Starter --app server
    ```
 
-   <sub>\* replace `Starter` and `server` with your own names</sub>
+   <sub>\* ❗️ replace `Starter` and `server` with your own names</sub>
 
-   <sub>\*\* [more on mix tasks](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html)</sub>
+   <sub>\*\* 👉🏽 [more on mix tasks](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html)</sub>
 
 3. Append newly created `.gitignore` file with:
 
@@ -34,7 +34,7 @@
    APP_PORT = 4000;
    APP_HOSTNAME = localhost; // in production change it to e.g. myapp.com
 
-   SECRET_KEY_BASE = X; // you can easily generate with mix
+   SECRET_KEY_BASE = X; // you can easily generate it with mix
 
    POSTGRES_PORT = 5433;
    PGPORT = 5433;
@@ -45,13 +45,13 @@
    PGDATA = /var/bil / postgresql / data / pgdata;
    ```
 
-   All the variables are pretty much self-explanatory, we define user name and password for our database, posrt, app hostname and port, plus secret key base for our app (you can generate it with `mix gen.secret`).
+   All the variables are pretty much self-explanatory, we define _user name_ and _password_ for our database, _databse port_, app _hostname_ and app _port_, ➕ 🔑 _secret key base_ 🔑 for our app (you can generate it with `mix phx.gen.secret`).
 
-   MIX_ENV is responsible for picking up an appropriate config file from config folder (that is `config.ex` will be appended by say `dev.ex` when we provide `dev` as an MIX_ENV variable)
+   _MIX_ENV_ is responsible for picking up an appropriate config file from config folder (that is `config.ex` will be appended by say `dev.ex` when we provide `dev` as an _MIX_ENV_ variable)
 
-4b. GENERAETE SECRET KEY BASE!!!!!! add this
+4b. Don't forget about secreet key base, just a reminder 😀
 
-5. Update the project's config:
+5. Update the project's config 🔧:
 
    - in `config/dev.ex` update the `Repo` config:
 
@@ -65,7 +65,7 @@
         pool_size: 10
      ```
 
-   - in `config/prod.ex` update the `Endpoint` config (host and port values):
+   - in `config/prod.ex` update the `Endpoint` config (_host_ and _port_ values):
 
      ```jsx
       config :server, StarterWeb.Endpoint,
@@ -79,7 +79,7 @@
         config :server, StarterWeb.Endpoint, server: true
      ```
 
-   - delete the `import_config "prod.secret.exs"` line from `config/prod.ex`
+   - delete 🗑 the `import_config "prod.secret.exs"` line from `config/prod.ex`
 
    - create new file `releases.exs` in `config`. Add following to it:
 
@@ -154,7 +154,7 @@
      ./prod/rel/server/bin/server start
      ```
 
-7. Give executable rights for `dev.sh`, `entrypoint.sh` and `entrypoint-prod.sh` scripts:
+7. Give executable rights for `dev.sh`, `entrypoint.sh` and `entrypoint-prod.sh` scripts (you need to do it on your machine, while copying the files, _docker_ will copy everything along with the permissions):
 
    - `chmod -x dev.sh` etc
 
