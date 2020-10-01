@@ -3,7 +3,7 @@
 ## How to run it
 
 1. Clone the repo
-2. Generate a new phoenix app inside it (e.g. as in this guide with `Starter` as our module and `server` as the name of the app. Further occurencies of these values just exchange with the ones of your choice) with this command:
+2. Generate a new phoenix app inside it (e.g. as in this guide with `Starter` as our base module name and `server` as the name of the application. Further occurencies of these values just exchange with the ones of your choice) with this command:
 
    ```jsx
    mix phx.new . --module Starter --app server
