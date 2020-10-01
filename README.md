@@ -146,7 +146,7 @@
      ./prod/rel/APPNAME/bin/APPNAME start
      ```
 
-     - with appropriate app and module names, e.g. when you create an app with `mix phx.new . --module Starter --app server` it should look like this:
+   - with appropriate app and module names, e.g. when you create an app with `mix phx.new . --module Starter --app server` it should look like this:
 
      ```jsx
      ./prod/rel/server/bin/server eval Starter.Release.migrate
