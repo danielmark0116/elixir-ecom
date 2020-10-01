@@ -53,34 +53,6 @@
 
 5. Update the project's config 🔧:
 
-   - in `config/dev.ex` update the `Repo` config:
-
-     ```jsx
-     config :server, Starter.Repo,
-        username: System.get_env("POSTGRES_USER"),
-        password: System.get_env("POSTGRES_PASSWORD"),
-        database: System.get_env("POSTGRES_DB"),
-        hostname: System.get_env("PGHOST"),
-        show_sensitive_data_on_connection_error: true,
-        pool_size: 10
-     ```
-
-   - in `config/prod.ex` update the `Endpoint` config (_host_ and _port_ values):
-
-     ```jsx
-      config :server, StarterWeb.Endpoint,
-         url: [host: Application.get_env(:server, :app_hostname), port: Application.get_env(:server, :app_port)],
-         cache_static_manifest: "priv/static/cache_manifest.json"
-     ```
-
-   - append the `Endpoint` settings in `config/prod.ex` with this:
-
-     ```jsx
-        config :server, StarterWeb.Endpoint, server: true
-     ```
-
-   - delete 🗑 the `import_config "prod.secret.exs"` line from `config/prod.ex`
-
    - create new file `releases.exs` in `config`. Add following to it:
 
      ```jsx
@@ -136,7 +108,62 @@
 
      ```
 
-6. Edit `entrypoint-prod.sh` - script needed for our production setup:
+   - in `config/dev.ex` update the `Repo` config:
+
+     ```jsx
+     config :server, Starter.Repo,
+        username: System.get_env("POSTGRES_USER"),
+        password: System.get_env("POSTGRES_PASSWORD"),
+        database: System.get_env("POSTGRES_DB"),
+        hostname: System.get_env("PGHOST"),
+        show_sensitive_data_on_connection_error: true,
+        pool_size: 10
+     ```
+
+   - in `config/prod.ex` update the `Endpoint` config (_host_ and _port_ values):
+
+     ```jsx
+      config :server, StarterWeb.Endpoint,
+         url: [host: Application.get_env(:server, :app_hostname), port: Application.get_env(:server, :app_port)],
+         cache_static_manifest: "priv/static/cache_manifest.json"
+     ```
+
+     <sub>\* remember to exchange `:server` atom with your application name</sub>
+
+   - append the `Endpoint` settings in `config/prod.ex` with this:
+
+     ```jsx
+        config :server, StarterWeb.Endpoint, server: true
+     ```
+
+   - delete 🗑 the `import_config "prod.secret.exs"` line from `config/prod.ex`
+
+6. Add `Starter.Release` module in e.g. `release.ex` file in `lib/server/release.ex`
+
+   ```jsx
+   defmodule Chatly.Release do
+      @app :server
+
+      def migrate do
+         for repo <- repos() do
+            {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Ecto.Migrator.run(&1, :up, all: true))
+         end
+      end
+
+      def rollback(repo, version) do
+         {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Ecto.Migrator.run(&1, :down, to: version))
+      end
+
+      defp repos do
+         Application.load(@app)
+         Application.fetch_env!(@app, :ecto_repos)
+      end
+   end
+   ```
+
+   <sub>\* Don't forget to exchange the `:server` atom with your application name</sub>
+
+7. Edit `entrypoint-prod.sh` - script needed for our production setup:
 
    - change these lines:
 
@@ -154,14 +181,16 @@
      ./prod/rel/server/bin/server start
      ```
 
-7. Give executable rights for `dev.sh`, `entrypoint.sh` and `entrypoint-prod.sh` scripts (you need to do it on your machine, while copying the files, _docker_ will copy everything along with the permissions):
+8. Give executable rights for `dev.sh`, `entrypoint.sh` and `entrypoint-prod.sh` scripts (you need to do it on your machine, while copying the files, _docker_ will copy everything along with the permissions):
 
-   - `chmod -x dev.sh` etc
+   - `chmod 777 dev.sh` etc
 
-8. Run the server
+9. Before running your app, you can run the code formatter with `mix format`.
 
-   - **development** ➡️ `./dev.sh` (or run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` manually with options of your choice)
-   - **production** ➡️ simply `docker-compose up`
+10. Run the server
+
+    - **development** ➡️ `./dev.sh` (or run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` manually with options of your choice)
+    - **production** ➡️ simply `docker-compose up`
 
 ---
 
