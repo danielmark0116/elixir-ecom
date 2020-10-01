@@ -1,14 +1,14 @@
-# Elixir, Phoenix and Docker starter
+# Elixir, Phoenix and Docker starter 🐳 🧪
 
-## Before you start
+## ▶️ Before you start
 
-Make sure that you have **docker**`, **docker-compose**, **Erlang VM**, **Elixir**, **Node JS** and other optional packages installed on your system. Here are the links to get you starter with all of them:
+☝🏽 Make sure that you have **docker**, **docker-compose**, **Erlang VM**, **Elixir**, **Node JS** and other optional packages installed on your system. Here are the links to get you starter with all of them:
 
-- [Get Docker](https://docs.docker.com/get-docker/)
-- [Get Docker Compose](https://docs.docker.com/compose/install/)
-- [Phoenix installation guide](https://hexdocs.pm/phoenix/installation.html)
+- [Get Docker 🐳](https://docs.docker.com/get-docker/)
+- [Get Docker Compose 🐳](https://docs.docker.com/compose/install/)
+- [Phoenix installation guide 🧪](https://hexdocs.pm/phoenix/installation.html)
 
-## How to run it
+## ▶️ How to run it
 
 1. Clone the repo
 2. Generate a new phoenix app inside it (e.g. as in this guide with `Starter` as our base module name and `server` as the name of the application. Further occurencies of these values just exchange with the ones of your choice) with this command:
@@ -165,7 +165,7 @@ Make sure that you have **docker**`, **docker-compose**, **Erlang VM**, **Elixir
 
 ---
 
-## Useful docker commands:
+## ▶️ Useful docker commands:
 
 - `docker-compose down` - stops containers and removes containers, networks, volumes, and images created by up [more here](https://docs.docker.com/compose/reference/down/).
 - `docker-compose up -d` - run containers in the background in detached mode [more here](https://docs.docker.com/compose/reference/up/)
