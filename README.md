@@ -10,6 +10,7 @@
    ```
 
    <sub>\* replace `Starter` and `server` with your own names</sub>
+
    <sub>\*\* [more on mix tasks](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html)</sub>
 
 3. Append newly created `.gitignore` file with:
