@@ -29,19 +29,19 @@
 4. Create `.env` file and add all the neccessary environment variabless to it, like so:
 
    ```
-   MIX_ENV = dev // or prod depending whether you want to run the app in development or production mode
+   MIX_ENV=dev // or prod depending whether you want to run the app in development or production mode
 
-   APP_PORT = 4000
-   APP_HOSTNAME = localhost // in production change it to e.g. myapp.com
+   APP_PORT=4000
+   APP_HOSTNAME=localhost // in production change it to e.g. myapp.com
 
-   SECRET_KEY_BASE = X // you can easily generate it with mix
+   SECRET_KEY_BASE=X // you can easily generate it with mix
 
-   POSTGRES_PORT = 5433
-   PGPORT = 5433
-   POSTGRES_USER = db_user
-   POSTGRES_PASSWORD = qwerty
-   POSTGRES_DB = db
-   PGHOST = db
+   POSTGRES_PORT=5433
+   PGPORT=5433
+   POSTGRES_USER=db_user
+   POSTGRES_PASSWORD=qwerty
+   POSTGRES_DB=db
+   PGHOST=db
    PGDATA=/var/lib/postgresql/data/pgdata
    ```
 
