@@ -1,5 +1,13 @@
 # Elixir, Phoenix and Docker starter
 
+## Before you start
+
+Make sure that you have **docker**`, **docker-compose**, **Erlang VM**, **Elixir**, **Node JS** and other optional packages installed on your system. Here are the links to get you starter with all of them:
+
+- [Get Docker](https://docs.docker.com/get-docker/)
+- [Get Docker Compose](https://docs.docker.com/compose/install/)
+- [Phoenix installation guide](https://hexdocs.pm/phoenix/installation.html)
+
 ## How to run it
 
 1. Clone the repo
