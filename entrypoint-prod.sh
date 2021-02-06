@@ -16,12 +16,9 @@ done
 if [[ -z `psql -Atqc "\\list $POSTGRES_DB"` ]]; then
   echo "Database $POSTGRES_DB does not exist. Creating..."
   createdb -E UTF8 $POSTGRES_DB -l en_US.UTF-8 -T template0
-  mix ecto.create
-  mix ecto.migrate
-  mix run priv/repo/seeds.exs
   echo "Database $POSTGRES_DB created."
 fi
 
-./prod/rel/APPNAME/bin/APPNAME eval AppName.Release.migrate
+./prod/rel/server/bin/server eval Ecom.Release.migrate
 
-./prod/rel/APPNAME/bin/APPNAME start
+./prod/rel/server/bin/server start
