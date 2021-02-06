@@ -22,7 +22,7 @@ if System.get_env("GITHUB_ACTIONS") do
   config :server, Ecom.Repo,
     username: "postgres",
     password: "postgres",
-    database: "test_db",
+    database: "test_db"
 end
 
 # Print only warnings and errors during test
