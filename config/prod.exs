@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :server, EcomWeb.Endpoint,
-  url: [host: Application.get_env(:server, :app_hostname), Application.get_env(:server, :app_port)],
+  url: [host: Application.get_env(:server, :app_hostname), port: Application.get_env(:server, :app_port)],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 config :server, EcomWeb.Endpoint, server: true
