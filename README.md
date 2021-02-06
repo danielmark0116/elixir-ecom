@@ -3,9 +3,9 @@
 To start your Phoenix server:
 
 ```bash
-chmod -777 ./entrypoint.sh
-chmod -777 ./entrypoint-prod.sh
-chmod -777 ./dev.sh
+chmod 777 ./entrypoint.sh
+chmod 777 ./entrypoint-prod.sh
+chmod 777 ./dev.sh
 
 ./dev.sh
 ```
