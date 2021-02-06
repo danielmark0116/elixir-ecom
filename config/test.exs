@@ -18,5 +18,11 @@ config :server, EcomWeb.Endpoint,
   http: [port: 4002],
   server: false
 
+if System.get_env("GITHUB_ACTIONS") do
+  config :app, Ecom.Repo,
+    username: "postgres",
+    password: "postgres"
+end
+
 # Print only warnings and errors during test
 config :logger, level: :warn
