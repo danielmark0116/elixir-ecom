@@ -41,6 +41,7 @@ defmodule Ecom.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.2"},
       {:telemetry_metrics, "~> 0.4"},
+      {:argon2_elixir, "~> 2.0"},
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
