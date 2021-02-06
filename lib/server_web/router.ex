@@ -19,6 +19,8 @@ defmodule EcomWeb.Router do
     get "/", PageController, :index
   end
 
+  # ADD ABSINTHE
+
   # Other scopes may use custom stacks.
   # scope "/api", EcomWeb do
   #   pipe_through :api
