@@ -20,6 +20,16 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
+## Accessing iex
+
+Run docker-compose and:
+
+```
+docker exec -it NAME_OF_RUNNING_PHOENIX_CONTAINER prod/rel/NAME/bin/NAME remote
+```
+
+> exchange NAME with the name of your app
+
 ## Connecting do DB with postico
 
 Remember to have the ports exposed for `db` service in `docker-compose.yml`. Then inspect docker container and connect to a proper host and port with a correct user name, password and db name

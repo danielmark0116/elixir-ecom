@@ -22,4 +22,4 @@ if [[ -z `psql -Atqc "\\list $POSTGRES_DB"` ]]; then
   echo "Database $POSTGRES_DB created."
 fi
 
-exec mix phx.server
+exec iex -S mix phx.server

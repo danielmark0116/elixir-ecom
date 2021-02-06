@@ -6,12 +6,21 @@ defmodule Ecom.Repo do
     def init(_, config) do
        config =
           config
+          |> config_per_env()
+
+       {:ok, config}
+    end
+
+    defp config_per_env(config) do
+       if Mix.env() == :test do
+         config
+       else
+          config
           |> Keyword.put(:username, System.get_env("POSTGRES_USER"))
           |> Keyword.put(:password, System.get_env("POSTGRES_PASSWORD"))
           |> Keyword.put(:database, System.get_env("POSTGRES_DB"))
           |> Keyword.put(:hostname, System.get_env("PGHOST"))
           |> Keyword.put(:port, System.get_env("POSTGRES_PORT") |> String.to_integer())
-
-       {:ok, config}
+       end
     end
 end
