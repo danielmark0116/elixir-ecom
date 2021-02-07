@@ -4,7 +4,11 @@ defmodule Ecom.Guardian do
   alias Accounts.User
 
   def get_jwt_secret() do
-    System.get_env("JWT_SECRET")
+    if Application.get_env(:server, :environment) == :test do
+      "test_jwt_secret_1234567890"
+    else
+      System.get_env("JWT_SECRET")
+    end
   end
 
   def subject_for_token(%User{id: userId}, _claims) do
