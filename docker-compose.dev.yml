@@ -8,7 +8,12 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/app
+      - ./config:/app/config
+      - ./mix.exs:/app/mix.exs
+      - ./assets:/app/assets
+      - ./lib:/app/lib
+      - ./priv:/app/priv
+      - ./test:/app/test
       - /app/assets/node_modules
       - /app/_build
       - /app/deps
