@@ -10,13 +10,33 @@ defmodule EcomWeb.Router do
   end
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
+    plug EcomWeb.Plugs.UserContextPlug
   end
 
   scope "/", EcomWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphql", Absinthe.Plug, schema: EcomWeb.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: EcomWeb.Schema,
+      interface: :advanced,
+      socket: EcomWeb.UserSocket
+
+    # if Mix.env() == :dev do
+    #   forward "/graphiql", Absinthe.Plug.GraphiQL,
+    #     schema: ChatlyWeb.Schema,
+    #     interface: :advanced,
+    #     socket: ChatlyWeb.UserSocket
+    # end
   end
 
   # Other scopes may use custom stacks.

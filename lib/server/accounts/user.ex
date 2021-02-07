@@ -23,10 +23,9 @@ defmodule Ecom.Accounts.User do
     user
     |> cast(attrs, [:name, :email, :password, :password_confirmation])
     |> validate_required([:name, :email, :password, :password_confirmation])
-    |> validate_confirmation(:password)
-    |> validate_format(:email, ~r/^\S+@\S+\.\S+$/)
-    |> update_change(:email, &String.downcase/1)
-    |> unique_constraint(:email)
+    |> validate_password()
+    |> validate_email()
+    |> validate_inclusion(:role, @user_roles)
     |> hash_pass()
     |> validate_required(:password_hash)
   end
@@ -35,8 +34,7 @@ defmodule Ecom.Accounts.User do
     user
     |> cast(attrs, [:name, :email])
     |> validate_required([:name, :email])
-    |> validate_format(:email, ~r/^\S+@\S+\.\S+$/)
-    |> unique_constraint(:email)
+    |> validate_email()
   end
 
   @doc false
@@ -46,4 +44,17 @@ defmodule Ecom.Accounts.User do
   end
 
   defp hash_pass(changeset), do: changeset
+
+  defp validate_password(changeset) do
+    changeset
+    |> validate_length(:password, min: 8, max: 255)
+    |> validate_confirmation(:password)
+  end
+
+  defp validate_email(changeset) do
+    changeset
+    |> validate_format(:email, ~r/^\S+@\S+\.\S+$/)
+    |> update_change(:email, &String.downcase/1)
+    |> unique_constraint(:email)
+  end
 end

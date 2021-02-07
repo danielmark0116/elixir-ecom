@@ -41,11 +41,18 @@ defmodule Ecom.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.2"},
       {:telemetry_metrics, "~> 0.4"},
+      {:ex_machina, "~> 2.4", only: :test},
       {:argon2_elixir, "~> 2.0"},
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:absinthe, "~> 1.4.0", override: true},
+      {:absinthe_phoenix, "~> 2.0", override: true},
+      {:absinthe_plug, "~> 1.4", override: true},
+      {:absinthe_ecto, "~> 0.1.3", override: true},
+      {:guardian, "~> 2.0"},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 

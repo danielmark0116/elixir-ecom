@@ -1,12 +1,12 @@
 use Mix.Config
 
 config :server, Ecom.Repo,
-   username: System.get_env("POSTGRES_USER"),
-   password: System.get_env("POSTGRES_PASSWORD"),
-   database: System.get_env("POSTGRES_DB"),
-   hostname: System.get_env("PGHOST"),
-   show_sensitive_data_on_connection_error: true,
-   pool_size: 10
+  username: System.get_env("POSTGRES_USER"),
+  password: System.get_env("POSTGRES_PASSWORD"),
+  database: System.get_env("POSTGRES_DB"),
+  hostname: System.get_env("PGHOST"),
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -73,3 +73,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :server, :environment, :dev
