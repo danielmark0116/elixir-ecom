@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.enable": false,
+  "prettier.disableLanguages": ["elixir"],
+  "editor.defaultFormatter": "JakeBecker.elixir-ls"
+}
